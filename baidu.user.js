@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         baidu
+// @name         BaiDu
 // @namespace    
 // @version      1.17
 // @icon         http://www.baidu.com/favicon.ico
