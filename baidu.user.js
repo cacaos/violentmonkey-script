@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         baidu
-// @namespace    https://github.com/HaoNShi/Tampermonkey_Scripts
+// @namespace    
 // @version      1.17
 // @icon         http://www.baidu.com/favicon.ico
 // @description  百度搜索、百度知道、百度百科、百度文库、百度图片、百度视频、百度贴吧、百度地图、百度经验去广告
