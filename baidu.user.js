@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         baidu
 // @namespace    https://gitee.com/meteis/violentmonkey-config
-// @version      0.0.1
+// @version      0.0.2
 // @icon         http://www.baidu.com/favicon.ico
 // @description  百度系列去广告
 // @author       Ming 
