@@ -1,4 +1,4 @@
-// ==Blacklist==
+// ==UserScript==
 // @name        blacklist
 // @namespace   https://gitee.com/meteis/violentmonkey-config
 // @match       *://*/*
