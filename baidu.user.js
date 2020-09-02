@@ -277,7 +277,8 @@ jQuery.noConflict();
 		$('#transOtherRight').remove();
 		$('.translate-setting').remove();
 		$('.domain-trans-wrapper').remove();
-		$('#app-read').remove();
-
+        setTimeout(function(){
+			$('#app-read').remove();
+        }, loadTime);
     }
 })(jQuery);
