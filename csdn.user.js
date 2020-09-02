@@ -1,9 +1,7 @@
 // ==UserScript==
 // @name          CSDN
-// @namespace    https://github.com/adlered
-// @version      3.3.9
-// @description  
-// @author       Adler
+// @version      4.0.1
+// @description   
 // @connect      www.csdn.net
 // @include      *://*.csdn.net/*
 // @require      https://cdn.jsdelivr.net/npm/jquery.cookie/jquery.cookie.js
@@ -12,6 +10,7 @@
 // @supportURL   https://github.com/adlered/CSDNGreener/issues/new?assignees=adlered&labels=help+wanted&template=ISSUE_TEMPLATE.md&title=
 // @contributionURL https://doc.stackoverflow.wiki/web/#/21?page_id=138
 // @grant        GM_addStyle
+// @icon         https://csdnimg.cn/public/favicon.ico
 // ==/UserScript==
 var version = "3.3.9";
 var currentURL = window.location.href;
