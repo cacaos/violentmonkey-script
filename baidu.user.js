@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         baidu
-// @namespace    https://github.com/HaoNShi/Tampermonkey_Scripts
-// @version      1.17
+// @namespace    https://gitee.com/meteis/violentmonkey-config
+// @version      0.0.1
 // @icon         http://www.baidu.com/favicon.ico
-// @description  百度搜索、百度知道、百度百科、百度文库、百度图片、百度视频、百度贴吧、百度地图、百度经验去广告
-// @author       HaoNShi
+// @description  百度系列去广告
+// @author       Ming 
 // @match        *://www.baidu.com/s*
 // @match        *://zhidao.baidu.com/*
 // @match        *://baike.baidu.com/*
@@ -270,4 +270,13 @@ jQuery.noConflict();
         $(".magzine-list").remove();
     }
 
+    if(location.href.indexOf('fanyi.baidu.com') > 0){
+        $(".header").remove();
+        $(".footer").remove();
+		$('#transOtherRight').remove();
+		$('.translate-setting').remove();
+		$('.domain-trans-wrapper').remove();
+		$('#app-read').remove();
+
+    }
 })(jQuery);
