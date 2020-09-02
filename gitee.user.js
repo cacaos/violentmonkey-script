@@ -2,11 +2,11 @@
 // @name         Gitee
 // @namespace    
 // @version      0.0.1
-// @description  花里胡哨 不想看到
-// @author       黑白课
+// @description   
 // @supportURL   
 // @match        https://gitee.com/*
 // @grant        none
+// @icon         https://gitee.com/assets/favicon.ico   
 // ==/UserScript==
 
 (function() {
