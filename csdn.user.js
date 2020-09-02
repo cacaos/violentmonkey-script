@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name          CSDN
-// @version      0.0.1
+// @version      4.0.1
 // @description   
 // @connect      www.csdn.net
 // @include      *://*.csdn.net/*
