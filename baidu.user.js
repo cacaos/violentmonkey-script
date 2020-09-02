@@ -16,6 +16,7 @@
 // @match        *://tieba.baidu.com/*
 // @match        *://map.baidu.com/*
 // @match        *://jingyan.baidu.com/*
+// @match        *://fanyi.baidu.com/*
 // @grant        none
 // @require      https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
 // ==/UserScript==
