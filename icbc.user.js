@@ -86,6 +86,7 @@ for (let i = 0; i < rc.length; i++) {
                  let seconds = new Date().getSeconds();
                  if(seconds > 30 && seconds < 50){
        //            document.getElementById("emForm").submit();
+                    window.open("http://www.4399.com/flash/61513_2.htm","zdr");
                  }  
                 console.log();
                 } 
