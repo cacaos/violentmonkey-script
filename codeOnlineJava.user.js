@@ -11,7 +11,8 @@
 
 
 setInterval(function(){
-    document.getElementsByClassName("ivu-btn ivu-btn-default")[4].click();
+  document.getElementsByTagName("title")[0].innerText = (document.getElementById('runResult').innerText);
+  document.getElementsByClassName("ivu-btn ivu-btn-default")[4].click();
 },10000);
 
 
@@ -43,13 +44,7 @@ setInterval(function(){
 //                 String br = substring1.substring(b + 10, be);
 //                 String sr = substring1.substring(s + 13, se);
                 
-//                 System.out.println(
-//                         LocalDateTime.now().toString()
-//                                 + ": "
-//                                 + "log-Info:"
-//                                 + br
-//                                 + " / "
-//                                 + sr);
+//                 System.out.println(br+'/'+sr);
 
 //             // Thread.sleep(200);
                 
