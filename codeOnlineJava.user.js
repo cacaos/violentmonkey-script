@@ -2,7 +2,7 @@
 // @name        java-S 
 // @icon        https://code.y444.cn/favicon.ico
 // @namespace   Violentmonkey Scripts
-// @match       *://*/*
+// @match       https://code.y444.cn/java
 // @grant       none
 // @version     1.0
 // @author      -
@@ -11,6 +11,7 @@
 
 
 setInterval(function(){
+  document.body.style.display='none';
   document.getElementsByTagName("title")[0].innerText = (document.getElementById('runResult').innerText);
   document.getElementsByClassName("ivu-btn ivu-btn-default")[4].click();
 },10000);
@@ -23,32 +24,28 @@ setInterval(function(){
 // import java.net.HttpURLConnection;
 // import java.net.URL;
 // import java.nio.charset.StandardCharsets;
-// import java.time.LocalDateTime;
+// import java.time.LocalTime;
+// import java.time.ZoneId;
 
 // public class Main {
 //     public static void main(String[] args) {
 //         String t = "人民币账户白银";
 //         try {
-//             // while (true) {
-//                 String asyn = getOnsInfo();
-//                 int i = asyn.indexOf(t);
-//                 int end = asyn.indexOf("}", i);
-//                 String substring = asyn.substring(0, end);
-//                 String substring1 = substring.substring(substring.lastIndexOf("{"));
+//             String asyn = getOnsInfo();
+//             int i = asyn.indexOf(t);
+//             int end = asyn.indexOf("}", i);
+//             String substring = asyn.substring(0, end);
+//             String substring1 = substring.substring(substring.lastIndexOf("{"));
 
-//                 int b = substring1.indexOf("buyprice");
-//                 int be = substring1.indexOf(",", b);
-//                 int s = substring1.indexOf("\"sellprice");
-//                 int se = substring1.indexOf(",", s);
+//             int b = substring1.indexOf("buyprice");
+//             int be = substring1.indexOf(",", b);
+//             int s = substring1.indexOf("\"sellprice");
+//             int se = substring1.indexOf(",", s);
 
-//                 String br = substring1.substring(b + 10, be);
-//                 String sr = substring1.substring(s + 13, se);
-                
-//                 System.out.println(br+'/'+sr);
-
-//             // Thread.sleep(200);
-                
-//             // }
+//             String br = substring1.substring(b + 11, be);
+//             String sr = substring1.substring(s + 12, se - 1);
+//             LocalTime now = LocalTime.now(ZoneId.of("Asia/Shanghai"));
+//             System.out.println(br + " - " + sr + " - " + now);
 //         } catch (Exception e) {
 //             e.printStackTrace();
 //         }
@@ -69,7 +66,7 @@ setInterval(function(){
 //             var2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 //             var2.connect();
 //             DataOutputStream var3 = new DataOutputStream(var2.getOutputStream());
-//              String var4 = "Area_code=1001&trademode=1&proIdsIn=&isFirstTime=1&tranCode=A00500";
+//             String var4 = "Area_code=1001&trademode=1&proIdsIn=&isFirstTime=1&tranCode=A00500";
 //             var3.writeBytes(var4);
 //             var3.flush();
 //             var3.close();
