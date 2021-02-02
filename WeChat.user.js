@@ -48,6 +48,7 @@ let styStr =
 	+ '.bubble.bubble_primary {background-color: '+ c141 +';color: '+ cfa6 +';}'
   + '.bubble.bubble_primary.right.arrow_primary::before, .bubble.bubble_primary.right::after {border: solid 3px #177ddc;background: #177ddc;border-radius: 100%;}'
 	+ '.bubble.bubble_default {background-color: #272825;color: #808080;}'
+  + '.bubble.left::after {border-right-color: #141414;}'
   + '.message.me {text-align: left;}'
   + '.bubble.right::after, .bubble.right::before {left: 0;}'
 	+ '.btn_send{display: none;}'
