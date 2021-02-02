@@ -1,11 +1,12 @@
 // ==UserScript==
-// @name        New script - qq.com
+// @name        WeChat Custom
 // @namespace   Violentmonkey Scripts
 // @match       https://wx.qq.com/
 // @grant       none
 // @version     1.0
-// @author      -
+// @author      Ming
 // @description 2/1/2021, 10:14:56 AM
+// @icon        https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico 
 // ==/UserScript==
 
 
