@@ -71,8 +71,16 @@ let styStr =
 	+ '.dropdown_menu {background-color: '+ c141 +';border: none;}'
   + '.dropdown_menu li a {color: '+ cfa6 +';font-size: 10px;border-bottom: solid 1px #303030;text-align: left;}'
   + '.dropdown_menu li a:hover {background-color: #111b26;}'
-	+ '';
 
+// login page
+  + '.ng-scope.ng-isolate-scope.unlogin{background: '+ c141 +';}'
+  + '.login_box { background-color: #141414; -webkit-box-shadow: none;}'
+  + '.login_box .qrcode .sub_title { display: none; }'
+  + '.login_box .qrcode .sub_desc { display: none; }'
+  + '.web_wechat_login_logo { display: none; }'
+  + '.login_box .qrcode .img { width: 90px; height: 90px; }'
+	+ '';
+ 
 let sty = document.createElement('style');
 sty.type = 'text/css';
 sty.rel = 'stylesheet'; 
@@ -90,8 +98,54 @@ scr.appendChild(document.createTextNode(scrStr));
 let toolBar = document.getElementById('tool_bar');
 let btn = document.createElement('BUTTON');
 btn.setAttribute('onclick','shSli()');
-btn.innerText= '>|<'
+btn.innerText= '>|<';
 btn.style.background= c141;
 btn.style.color='#595959';
 btn.style.border = 'none';
 toolBar.appendChild(btn);
+
+
+// http://localhost:8099/key/press
+// http://localhost:8099/key/release
+
+document.addEventListener("visibilitychange", function() { 
+  let visState = document.visibilityState;
+  if('visible' == visState){
+      var x = new XMLHttpRequest();
+			x.open("GET",'http://localhost:8099/key/release', true);
+			x.onload=function(e) {
+      	console.error('key release');
+      }
+			x.onerror = e => {
+				console.error('请求错误',e);
+			};
+			x.ontimeout = e => {
+				console.error('请求超时',e); 
+			};
+			x.send();
+  } 
+});
+
+try{
+  setTimeout(()=>{
+      return;
+      let rq = document.getElementsByClassName('qrcode')[0];
+      let img = rq.getElementsByTagName('IMG')[0];
+      console.log(1111,img);
+      let rqSrc = img.getAttribute('src'); 
+      if(rqSrc){
+        var x = new XMLHttpRequest();
+        x.open("GET",'http://localhost:8099/key/sendRq?email='+'sonamu@foxmail.com'+'&text=' + rqSrc, true);
+        x.onload=function(e) {
+          console.error('key release');
+        }
+        x.onerror = e => {
+          console.error('请求错误',e);
+        };
+        x.ontimeout = e => {
+          console.error('请求超时',e); 
+        };
+        x.send();
+      }
+  },3000);
+}catch(err){}
