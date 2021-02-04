@@ -108,6 +108,22 @@ toolBar.appendChild(btn);
 // http://localhost:8099/key/press
 // http://localhost:8099/key/release
 
+var isPress = 0;
+setInterval(() => {
+  let title = document.title;
+  if(title != '微信网页版'){
+      let x = new XMLHttpRequest();
+			x.open("GET",'http://localhost:8099/key/press', true);
+			x.send();
+      isPress = 1;
+  }else{
+    if(isPress == 1){
+        console.log('isPress',isPress);
+    }
+  }
+  console.log('title',title == '微信网页版');
+},3000);
+ 
 document.addEventListener("visibilitychange", function() { 
   let visState = document.visibilityState;
   if('visible' == visState){
