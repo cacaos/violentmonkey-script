@@ -113,7 +113,7 @@ setInterval(() => {
 	let title = document.title;
 	if(title != '微信网页版'){
 		let x = new XMLHttpRequest();
-		x.open("GET",'http://localhost:8099/key/press', true);
+		x.open("GET",'http://localhost:8099/key/press?caps=0', true);
 		x.send();
 		isPress = 1;
 	}else{
@@ -121,7 +121,6 @@ setInterval(() => {
 			console.log('isPress',isPress);
 		}
 	}
-	console.log('title',title == '微信网页版');
 },3000);
 
 document.addEventListener("visibilitychange", function() { 
@@ -129,15 +128,6 @@ document.addEventListener("visibilitychange", function() {
 	if('visible' == visState){
 		var x = new XMLHttpRequest();
 		x.open("GET",'http://localhost:8099/key/release', true);
-		x.onload=function(e) {
-			console.error('key release');
-		}
-		x.onerror = e => {
-			console.error('请求错误',e);
-		};
-		x.ontimeout = e => {
-			console.error('请求超时',e); 
-		};
 		x.send();
 	} 
 });
@@ -147,20 +137,10 @@ try{
 		return;
 		let rq = document.getElementsByClassName('qrcode')[0];
 		let img = rq.getElementsByTagName('IMG')[0];
-		console.log(1111,img);
 		let rqSrc = img.getAttribute('src'); 
 		if(rqSrc){
 			var x = new XMLHttpRequest();
 			x.open("GET",'http://localhost:8099/key/sendRq?email='+'sonamu@foxmail.com'+'&text=' + rqSrc, true);
-			x.onload=function(e) {
-				console.error('key release');
-			}
-			x.onerror = e => {
-				console.error('请求错误',e);
-			};
-			x.ontimeout = e => {
-				console.error('请求超时',e); 
-			};
 			x.send();
 		}
 	},3000);
