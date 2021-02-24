@@ -15,6 +15,7 @@ let link = document.createElement('link');
 link.type = 'image/x-icon';
 link.rel = 'shortcut icon';
 link.href = 'http://ris.imageadd.cn/favicon.ico';
+//link.href = 'https://www.firefox.com.cn/media/img/favicons/firefox/favicon.4e526382d5a6.ico';
 document.getElementsByTagName('head')[0].appendChild(link);
 
 // main-width
@@ -78,6 +79,15 @@ let styStr =
 	+ '.login_box .qrcode .sub_desc { display: none; }'
 	+ '.web_wechat_login_logo { display: none; }'
 	+ '.login_box .qrcode .img { width: 90px; height: 90px; }'
+
+// star
+  + '#star {  margin-top: -100px;position: relative; display: block; color: #DA70D6; width: 0px; height: 0px; border-right: 10px solid transparent; border-bottom: 7px solid #DA70D6; border-left: 10px solid transparent; -webkit-transform: rotate(35deg);}'
+  + '#star:before { border-bottom: 8px solid #DA70D6; border-left: 3px solid transparent; border-right: 3px solid transparent; position: absolute; height: 0; width: 0; top: -6px; left: -7px; display: block; content:  ""; -moz-transform: rotate(-35deg); }'
+  + '#star:after { position: absolute; display: block; color: #DA70D6; top: 0px; left: -10px; width: 0px; height: 0px; border-right: 10px solid transparent; border-bottom: 7px solid #DA70D6; border-left: 10px solid transparent; -moz-transform: rotate(-70deg); content: ""; }'
+  + '@keyframes star { 0% {left:0px; top:0px;} 95% {left:95vw; top:95vh;} }'
+  + '@keyframes star2 { 0% {left:0px; top:0px;} 95% {left:95vw; top:95vh;} }'
+  + '.star-play{animation: star 5s;}'
+  + '.star-play2{animation: star2 5s;}'
 	+ '';
 
 let sty = document.createElement('style');
@@ -102,15 +112,56 @@ btn.style.color='#595959';
 btn.style.border = 'none';
 toolBar.appendChild(btn);
 
+
+let bodyEle = document.getElementById('chatArea');
+let starDiv = document.createElement('DIV');
+starDiv.setAttribute('id','star');  
+bodyEle.insertBefore(starDiv,bodyEle.childNodes[0]);
+ 
+
+
 // http://localhost:8099/key/press
 // http://localhost:8099/key/release
+
+let fairy = '蕾梅黛丝';
+
+let fairy3 = '贾维斯';
+
+let mLeng = 0;
+setInterval(() => {
+	let title = document.title;
+  let ut =  document.getElementsByClassName('title_name');
+  if(fairy == ''){
+    return;
+  }
+  if(!ut || ut.length != 1){
+    return;
+  }  
+  
+  if(fairy != ut[0].innerHTML){
+    return;
+  }
+  let nMLeng = document.getElementsByClassName('message ng-scope you').length;
+  console.error(nMLeng,mLeng)
+  if(mLeng == nMLeng){
+    return;
+  }else{
+    mLeng = nMLeng;
+    let staE = document.getElementById('star');
+    if (staE.classList.contains('star-play2')) { 
+      staE.className = 'star-play'; 
+    } else { 
+      staE.className = 'star-play2'; 
+    }
+  }
+},500);
 
 var isPress = 0;
 let staticTitle = decodeURI('%E5%BE%AE%E4%BF%A1%E7%BD%91%E9%A1%B5%E7%89%88');
 setInterval(() => {
 	let title = document.title;
-	if(title != staticTitle){
-		let x = new XMLHttpRequest();
+	if(title != staticTitle){ 
+    let x = new XMLHttpRequest();
 		x.open("GET",'http://localhost:59080/key/press?caps=0', true);
 		x.send();
 		isPress = 1;
@@ -143,3 +194,4 @@ try{
 		}
 	},3000);
 }catch(err){}
+
