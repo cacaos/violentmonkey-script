@@ -17,6 +17,7 @@
 let c141 = '#141414';
 let cfa6 = '#ffffffa6';
 let c808 = '#808080';
+let cFF6 = '#FF69B4';
 
 // 
 
@@ -88,9 +89,9 @@ let styStr =
 	+ '.login_box .qrcode .img { width: 90px; height: 90px; }'
 
 // star
-	+ '#star {  margin-top: -100px;position: relative; display: block; color: #DA70D6; width: 0px; height: 0px; border-right: 10px solid transparent; border-bottom: 7px solid #DA70D6; border-left: 10px solid transparent; -webkit-transform: rotate(35deg);}'
-	+ '#star:before { border-bottom: 8px solid #DA70D6; border-left: 3px solid transparent; border-right: 3px solid transparent; position: absolute; height: 0; width: 0; top: -6px; left: -7px; display: block; content:  ""; -moz-transform: rotate(-35deg); }'
-	+ '#star:after { position: absolute; display: block; color: #DA70D6; top: 0px; left: -10px; width: 0px; height: 0px; border-right: 10px solid transparent; border-bottom: 7px solid #DA70D6; border-left: 10px solid transparent; -moz-transform: rotate(-70deg); content: ""; }'
+	+ '#star {  margin-top: -100px;position: relative; display: block; color: #FF69B4; width: 0px; height: 0px; border-right: 10px solid transparent; border-bottom: 7px solid #FF69B4; border-left: 10px solid transparent; -webkit-transform: rotate(35deg);}'
+	+ '#star:before { border-bottom: 8px solid #FF69B4; border-left: 3px solid transparent; border-right: 3px solid transparent; position: absolute; height: 0; width: 0; top: -6px; left: -7px; display: block; content:  ""; -moz-transform: rotate(-35deg); }'
+	+ '#star:after { position: absolute; display: block; color: #FF69B4; top: 0px; left: -10px; width: 0px; height: 0px; border-right: 10px solid transparent; border-bottom: 7px solid #FF69B4; border-left: 10px solid transparent; -moz-transform: rotate(-70deg); content: ""; }'
 	+ '@keyframes star { 0% {left:0px; top:0px;} 95% {left:95vw; top:95vh;} }'
 	+ '@keyframes star2 { 0% {left:0px; top:0px;} 95% {left:95vw; top:95vh;} }'
 	+ '.star-play{animation: star 5s;}'
@@ -151,6 +152,7 @@ setInterval(() => {
 	if(mLeng == nMLeng){
 		return;
 	}else{
+    console.log(mLeng,nMLeng);
 		mLeng = nMLeng;
 		let staE = document.getElementById('star');
 		if (staE.classList.contains('star-play2')) { 
