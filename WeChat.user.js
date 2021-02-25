@@ -2,13 +2,23 @@
 // @name        WeChat Custom
 // @namespace   Violentmonkey Scripts
 // @match       https://wx.qq.com/
-// @grant       none
+// @grant       GM_addStyle
+// @grant       GM_xmlhttpRequest
+// @grant       GM_getValue
+// @grant       GM_registerMenuCommand
 // @version     1.0
 // @author      Ming
 // @description 2/1/2021, 10:14:56 AM
 // @icon        https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico 
 // ==/UserScript==
 
+
+// colors 
+let c141 = '#141414';
+let cfa6 = '#ffffffa6';
+let c808 = '#808080';
+
+// 
 
 //ico
 let link = document.createElement('link');
@@ -24,9 +34,6 @@ if(mainDiv && mainDiv.length > 0){
 	mainDiv[0].style.maxWidth="100%";
 }
 
-let c141 = '#141414';
-let cfa6 = '#ffffffa6';
-let c808 = '#808080';
 // custom style
 let styStr = 
 	// main box
@@ -81,21 +88,22 @@ let styStr =
 	+ '.login_box .qrcode .img { width: 90px; height: 90px; }'
 
 // star
-  + '#star {  margin-top: -100px;position: relative; display: block; color: #DA70D6; width: 0px; height: 0px; border-right: 10px solid transparent; border-bottom: 7px solid #DA70D6; border-left: 10px solid transparent; -webkit-transform: rotate(35deg);}'
-  + '#star:before { border-bottom: 8px solid #DA70D6; border-left: 3px solid transparent; border-right: 3px solid transparent; position: absolute; height: 0; width: 0; top: -6px; left: -7px; display: block; content:  ""; -moz-transform: rotate(-35deg); }'
-  + '#star:after { position: absolute; display: block; color: #DA70D6; top: 0px; left: -10px; width: 0px; height: 0px; border-right: 10px solid transparent; border-bottom: 7px solid #DA70D6; border-left: 10px solid transparent; -moz-transform: rotate(-70deg); content: ""; }'
-  + '@keyframes star { 0% {left:0px; top:0px;} 95% {left:95vw; top:95vh;} }'
-  + '@keyframes star2 { 0% {left:0px; top:0px;} 95% {left:95vw; top:95vh;} }'
-  + '.star-play{animation: star 5s;}'
-  + '.star-play2{animation: star2 5s;}'
+	+ '#star {  margin-top: -100px;position: relative; display: block; color: #DA70D6; width: 0px; height: 0px; border-right: 10px solid transparent; border-bottom: 7px solid #DA70D6; border-left: 10px solid transparent; -webkit-transform: rotate(35deg);}'
+	+ '#star:before { border-bottom: 8px solid #DA70D6; border-left: 3px solid transparent; border-right: 3px solid transparent; position: absolute; height: 0; width: 0; top: -6px; left: -7px; display: block; content:  ""; -moz-transform: rotate(-35deg); }'
+	+ '#star:after { position: absolute; display: block; color: #DA70D6; top: 0px; left: -10px; width: 0px; height: 0px; border-right: 10px solid transparent; border-bottom: 7px solid #DA70D6; border-left: 10px solid transparent; -moz-transform: rotate(-70deg); content: ""; }'
+	+ '@keyframes star { 0% {left:0px; top:0px;} 95% {left:95vw; top:95vh;} }'
+	+ '@keyframes star2 { 0% {left:0px; top:0px;} 95% {left:95vw; top:95vh;} }'
+	+ '.star-play{animation: star 5s;}'
+	+ '.star-play2{animation: star2 5s;}'
 	+ '';
 
-let sty = document.createElement('style');
-sty.type = 'text/css';
-sty.rel = 'stylesheet'; 
-sty.appendChild(document.createTextNode(styStr));
-(document.getElementsByTagName('head')[0]).appendChild(sty);
- 
+// let sty = document.createElement('style');
+// sty.type = 'text/css';
+// sty.rel = 'stylesheet'; 
+// sty.appendChild(document.createTextNode(styStr));
+// (document.getElementsByTagName('head')[0]).appendChild(sty);
+GM_addStyle(styStr); 
+
 
 // show or hide panel 
 let scrStr = "function shSli(){ try{ let dis = document.getElementsByClassName('panel')[0].style.display; document.getElementsByClassName('panel')[0].style.display = (dis == 'none') ? 'block' : 'none'; }catch(err){}}";
@@ -117,81 +125,56 @@ let bodyEle = document.getElementById('chatArea');
 let starDiv = document.createElement('DIV');
 starDiv.setAttribute('id','star');  
 bodyEle.insertBefore(starDiv,bodyEle.childNodes[0]);
- 
 
 
-// http://localhost:8099/key/press
-// http://localhost:8099/key/release
 
-let fairy = '蕾梅黛丝';
-
-let fairy3 = '贾维斯';
-
+//
+// star play
+//
 let mLeng = 0;
-setInterval(() => {
-	let title = document.title;
-  let ut =  document.getElementsByClassName('title_name');
-  if(fairy == ''){
-    return;
-  }
-  if(!ut || ut.length != 1){
-    return;
-  }  
-  
-  if(fairy != ut[0].innerHTML){
-    return;
-  }
-  let nMLeng = document.getElementsByClassName('message ng-scope you').length;
-  console.error(nMLeng,mLeng)
-  if(mLeng == nMLeng){
-    return;
-  }else{
-    mLeng = nMLeng;
-    let staE = document.getElementById('star');
-    if (staE.classList.contains('star-play2')) { 
-      staE.className = 'star-play'; 
-    } else { 
-      staE.className = 'star-play2'; 
-    }
-  }
-},500);
+setInterval(() => { 
+	let fairy = GM_getValue('fairy');
+	if(fairy == ''){
+		return;
+	}
 
-var isPress = 0;
-let staticTitle = decodeURI('%E5%BE%AE%E4%BF%A1%E7%BD%91%E9%A1%B5%E7%89%88');
-setInterval(() => {
-	let title = document.title;
-	if(title != staticTitle){ 
-    let x = new XMLHttpRequest();
-		x.open("GET",'http://localhost:59080/key/press?caps=0', true);
-		x.send();
-		isPress = 1;
+	let ut =  document.getElementsByClassName('title_name');
+	if(!ut || ut.length != 1){
+		return;
+	}  
+
+	if(fairy != ut[0].innerHTML){
+		return;
+	}
+
+	let nMLeng = document.getElementsByClassName('message ng-scope you').length;
+	if(mLeng == nMLeng){
+		return;
 	}else{
-		if(isPress == 1){
-			console.log('isPress',isPress);
+		mLeng = nMLeng;
+		let staE = document.getElementById('star');
+		if (staE.classList.contains('star-play2')) { 
+			staE.className = 'star-play'; 
+		} else { 
+			staE.className = 'star-play2'; 
 		}
 	}
+},500);
+
+
+let staticTitle = decodeURI('%E5%BE%AE%E4%BF%A1%E7%BD%91%E9%A1%B5%E7%89%88');
+setInterval(() => {
+	if(document.title != staticTitle){
+		GM_xmlhttpRequest({url: 'http://localhost:59080/key/press?caps=0'});
+	} 
 },3000);
 
 document.addEventListener("visibilitychange", function() { 
-	let visState = document.visibilityState;
-	if('visible' == visState){
-		var x = new XMLHttpRequest();
-		x.open("GET",'http://localhost:59080/key/release', true);
-		x.send();
+	if('visible' == document.visibilityState){
+		GM_xmlhttpRequest({url: 'http://localhost:59080/key/release'});
 	} 
 });
 
-try{
-	setTimeout(()=>{
-		return;
-		let rq = document.getElementsByClassName('qrcode')[0];
-		let img = rq.getElementsByTagName('IMG')[0];
-		let rqSrc = img.getAttribute('src'); 
-		if(rqSrc){
-			var x = new XMLHttpRequest();
-			x.open("GET",'http://localhost:59080/key/sendRq?email='+'sonamu@foxmail.com'+'&text=' + rqSrc, true);
-			x.send();
-		}
-	},3000);
-}catch(err){}
+GM_registerMenuCommand('keyRelease', function(){GM_xmlhttpRequest({url: 'http://localhost:59080/key/release'});});
+
 
