@@ -18,8 +18,8 @@ let c141 = '#141414';
 let cfa6 = '#ffffffa6';
 let c808 = '#808080';
 let cFF6 = '#FF69B4';
+let starC = "#FF69B4";
 
-// 
 
 //ico
 let link = document.createElement('link');
@@ -55,7 +55,7 @@ let styStr =
 	+ '.chat .box_ft .desc {display: none;}'
 // main msg
 	+ '.bubble.bubble_primary {background-color: '+ c141 +';color: #808080;}'
-	+ '.bubble.bubble_primary.right.arrow_primary::before, .bubble.bubble_primary.right::after {border: solid 3px #177ddc;background: #177ddc;border-radius: 100%;}'
+	+ '.bubble.bubble_primary.right.arrow_primary::before, .bubble.bubble_primary.right::after {border: solid 1px #177ddc;background: #177ddc;border-radius: 100%;}'
 	+ '.bubble.bubble_default {background-color: #141414;color: #808080;}'
 	+ '.bubble.left::after {border-right-color: #141414;}'
 	+ '.message.me {text-align: left;}'
@@ -88,10 +88,11 @@ let styStr =
 	+ '.web_wechat_login_logo { display: none; }'
 	+ '.login_box .qrcode .img { width: 90px; height: 90px; }'
 
+
 // star
-	+ '#star {  margin-top: -100px;position: relative; display: block; color: #FF69B4; width: 0px; height: 0px; border-right: 10px solid transparent; border-bottom: 7px solid #FF69B4; border-left: 10px solid transparent; -webkit-transform: rotate(35deg);}'
-	+ '#star:before { border-bottom: 8px solid #FF69B4; border-left: 3px solid transparent; border-right: 3px solid transparent; position: absolute; height: 0; width: 0; top: -6px; left: -7px; display: block; content:  ""; -moz-transform: rotate(-35deg); }'
-	+ '#star:after { position: absolute; display: block; color: #FF69B4; top: 0px; left: -10px; width: 0px; height: 0px; border-right: 10px solid transparent; border-bottom: 7px solid #FF69B4; border-left: 10px solid transparent; -moz-transform: rotate(-70deg); content: ""; }'
+	+ '#star {  margin-top: -100px;position: relative; display: block; color: ' + starC + '; width: 0px; height: 0px; border-right: 10px solid transparent; border-bottom: 7px solid ' + starC + '; border-left: 10px solid transparent; -webkit-transform: rotate(35deg);}'
+	+ '#star:before { border-bottom: 8px solid ' + starC + '; border-left: 3px solid transparent; border-right: 3px solid transparent; position: absolute; height: 0; width: 0; top: -6px; left: -7px; display: block; content:  ""; -moz-transform: rotate(-35deg); }'
+	+ '#star:after { position: absolute; display: block; color: ' + starC + '; top: 0px; left: -10px; width: 0px; height: 0px; border-right: 10px solid transparent; border-bottom: 7px solid ' + starC + '; border-left: 10px solid transparent; -moz-transform: rotate(-70deg); content: ""; }'
 	+ '@keyframes star { 0% {left:0px; top:0px;} 95% {left:95vw; top:95vh;} }'
 	+ '@keyframes star2 { 0% {left:0px; top:0px;} 95% {left:95vw; top:95vh;} }'
 	+ '.star-play{animation: star 5s;}'
@@ -133,26 +134,26 @@ bodyEle.insertBefore(starDiv,bodyEle.childNodes[0]);
 // star play
 //
 let mLeng = 0;
-setInterval(() => { 
+setInterval(() => {  
 	let fairy = GM_getValue('fairy');
 	if(fairy == ''){
-		return;
+		//return;
 	}
 
 	let ut =  document.getElementsByClassName('title_name');
 	if(!ut || ut.length != 1){
-		return;
+	//	return;
 	}  
 
 	if(fairy != ut[0].innerHTML){
-		return;
+	//	return;
 	}
 
 	let nMLeng = document.getElementsByClassName('message ng-scope you').length;
 	if(mLeng == nMLeng){
 		return;
 	}else{
-    console.log(mLeng,nMLeng);
+  //  console.log(mLeng,nMLeng);
 		mLeng = nMLeng;
 		let staE = document.getElementById('star');
 		if (staE.classList.contains('star-play2')) { 
@@ -178,5 +179,3 @@ document.addEventListener("visibilitychange", function() {
 });
 
 GM_registerMenuCommand('keyRelease', function(){GM_xmlhttpRequest({url: 'http://localhost:59080/key/release'});});
-
-
