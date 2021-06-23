@@ -1,6 +1,9 @@
 /*
- Copyright The Closure Library Authors.
- SPDX-License-Identifier: Apache-2.0
+ *
+ * Copyright The Closure Library Authors.
+ * SPDX-License-Identifier: Apache-2.0
+ * --update: 
+ * _loadJs(b + '/translate_static/js/element/main_zh-CN.js');
  */
 (function() {
 	var gtConstEvalStartTime = new Date();
@@ -463,9 +466,9 @@
 		c._plla = h + '/translate_a/l';
 		c._pmi = b + '/translate_static/img/mini_google.png';
 		c._ps = b + '/translate_static/css/translateelement.css';
-		c._ps = '';
+		c._ps = 'https://cdn.jsdelivr.net/gh/ojer/violentmonkey-script@master/google-translate/translate.google.com/translate_static/css/translateelement.css';
 		c._puh = 'translate.google.com';
 		_loadCss(c._ps);
-		_loadJs(b + '/translate_static/js/element/main_zh-CN.js');
+		_loadJs('https://cdn.jsdelivr.net/gh/ojer/violentmonkey-script@master/google-translate/translate.google.com/translate_static/js/element/main_zh-CN.js');
 	})();
 })();
