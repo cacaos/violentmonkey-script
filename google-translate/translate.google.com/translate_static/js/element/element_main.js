@@ -77,6 +77,7 @@
 		sb = "horizontal",
 		tb = "https://translate.google.com",
 		ub = "https://www.google.com/images/cleardot.gif",
+		ub = "https://cdn.jsdelivr.net/gh/ojer/violentmonkey-script/google-translate/www.google.com/images/cleardot.gif",
 		vb = "https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_42x16dp.png",
 		wb = "javascript:void(0)",
 		xb = "keydown",
