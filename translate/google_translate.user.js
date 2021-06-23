@@ -1,39 +1,17 @@
 // ==UserScript==
 // @name         google_translate
-// @namespace    https://gitee.com/Kaiter-Plus/TampermonkeyScript/tree/master/Translaw
-// @description  
-// @version      1.41
-// @license      BSD-3-Clause
-// @include      *://*
-// @exclude      /^(http|https).*[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/
-// @exclude      /.*duyaoss\.com/
-// @exclude      /.*lanzous\.com/
-// @exclude      /.*w3school.*cn/
-// @exclude      /.*iqiyi\.com/
-// @exclude      /.*baidu.*/
-// @exclude      /.*cnblogs\.com/
-// @exclude      /.*csdn\.net/
-// @exclude      /.*zhku\.edu\.cn/
-// @exclude      /.*zhihuishu\.com/
-// @exclude      /.*aliyuncs\.com/
-// @exclude      /.*chaoxing\.com/
-// @exclude      /.*youku\.com/
-// @exclude      /.*examcoo\.com/
-// @exclude      /.*mooc\.com/
-// @exclude      /.*bilibili\.com/
-// @exclude      /.*qq\.com/
-// @exclude      /.*yy\.com/
-// @exclude      /.*huya\.com/
-// @exclude      /localhost/ 
-// @exclude      /.*eleme\.cn/
-// @icon         https://img.icons8.com/dusk/128/000000/google-logo--v1.png
-// @noframes
+// @namespace   Violentmonkey Scripts
+// @match       *://*/*
 // @grant        GM_addStyle
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        GM_notification
 // @grant        GM_registerMenuCommand
-// @downloadURL   http://imageadd.cn/favic
+// @version     1.0
+// @author      Ming
+// @description 6/23/2021, 10:09:13 AM
+// @exclude      /localhost/ 
+// @icon         https://img.icons8.com/dusk/128/000000/google-logo--v1.png
 // ==/UserScript==
 
 ;(function () {
