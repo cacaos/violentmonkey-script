@@ -77,7 +77,7 @@
 		sb = "horizontal",
 		tb = "https://translate.google.com",
 		ub = "https://www.google.com/images/cleardot.gif",
-		ub = "https://cdn.jsdelivr.net/gh/ojer/violentmonkey-script/google-translate/www.google.com/images/cleardot.gif",
+		ub = "https://cdn.jsdelivr.net/gh/ojer/violentmonkey-script@main/google-translate/www.google.com/images/cleardot.gif",
 		vb = "https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_42x16dp.png",
 		wb = "javascript:void(0)",
 		xb = "keydown",
@@ -934,7 +934,7 @@
 	}
 	var de = /^[-,."'%_!# a-zA-Z0-9\[\]]+$/,
 		ce = /\b(url\([ \t\n]*)('[ -&(-\[\]-~]*'|"[ !#-\[\]-~]*"|[!#-&*-\[\]-~]*)([ \t\n]*\))/g,
-		be = /\b(calc|cubic-bezier|fit-content|hsl|hsla|linear-gradient|matrix|minmax|repeat|rgb|rgba|(rotate|scale|translate)(X|Y|Z|3d)?)\([-+*/0 - 9a - z. % \ [\], ] + \) / g, ee = /\/\*/;
+		be = /\b(calc|cubic-bezier|fit-content|hsl|hsla|linear-gradient|matrix|minmax|repeat|rgb|rgba|(rotate|scale|translate)(X|Y|Z|3d)?)\([-+*/0-9a-z.%\[\],]+\)/g,ee = /\/\*/;
 	function ge(a) {
 		return a.replace(ce,
 			function(b, c, d, e) {
@@ -1183,11 +1183,7 @@
 	}
 	var Ge = null,
 		Ue = null,
-		Ve = /^[\w+/_ - ] + [ = ] {
-			0,
-				2
-		}
-	$ / ;
+		Ve = /^[\w+/_-]+[=]{0,2}$/;
 	function He(a) {
 		var b = x.document;
 		if (!b.querySelector) return "";
@@ -1625,7 +1621,7 @@ function rg(a, b, c) {
 	else if (yc(a) || typeof a === t) Pc(a, b, c);
 	else for (var d = qg(a), e = pg(a), f = e.length, h = 0; h < f; h++) b.call(c, e[h], d && d[h], a)
 };
-var sg = /^(?:([^:/ ? #.] + ) : ) ? ( ? :\ / \ / ( ? :([ ^ \\ / ?#] * )@) ? ([ ^ \\ / ?#] * ?)( ? ::([0 - 9] + )) ? ( ? =[\\ / ?#] | $)) ? ([ ^ ?#] + ) ? ( ? :\ ? ([ ^ #] * )) ? ( ? :# ([\s\S] * )) ? $ / ;
+var sg = /^(?:([^:/?#.]+):)?(?:\/\/(?:([^\\/?#]*)@)?([^\\/?#]*?)(?::([0-9]+))?(?=[\\/?#]|$))?([^?#]+)?(?:\?([^#]*))?(?:#([\s\S]*))?$/;
 function tg(a) {
 	return a ? decodeURI(a) : a
 }
@@ -8606,7 +8602,7 @@ function Lr(a, b) {
 	b.client = pr;
 	ir && (b.logld = "v" + ir);
 	var c = new Image;
-	c.src = "//" + yr + "/gen204?" + Kr(b);
+	//c.src = "//" + yr + "/gen204?" + Kr(b);
 	c.onload = function() {
 		c.onload = null
 	}
@@ -9011,7 +9007,7 @@ function ws(a, b, c, d, e, f) {
 	b = sr + vr;
 	this.m = a.g ? new ps(b, a.g, {
 		client: pr
-	}) : new ms(b, {
+	}) : new ms('https://cdn.jsdelivr.net/gh/ojer/violentmonkey-script@main/google-translate/translate.google.com/translate_a/l.js', {
 		client: pr
 	},
 		"cb");
@@ -9978,7 +9974,7 @@ w(Ft, No);v = Ft.prototype;v.ka = function() {
 	this.I = !1;
 	var a = wd.test(jr) ? Qb: "ltr";
 	this.Yb(Gi(Ls, {
-		Pi: "https://www.gstatic.com/images/branding/product/1x/translate_24dp.png",
+		Pi: "https://cdn.jsdelivr.net/gh/ojer/violentmonkey-script@main/google-translate/translate.google.com/translate_static/img/translate_24dp.png",
 		Xj: ub,
 		Zj: ur,
 		dir: a
@@ -12374,7 +12370,7 @@ B(vv, R);v = vv.prototype;v.ka = function() {
 			Nv = Z.sh,
 			Ov = Z.yf,
 			Pv = Z.yf;
-		Ha = gh(ia + I(wh(b)) + '"></head><body class="goog-te-banner" scroll="no" border=0 dir="' + I(a) + '"><table border=0 cellspacing=0 cellpadding=0 width=100% height=100%><tr valign=middle><td width=1 nowrap><a href="' + I(ph(tb)) + '" class="goog-logo-link" target="_blank"><img src="' + I(uh("https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_68x28dp.png")) + '" alt="Google ' + I(pc) + '"></a></td>' + (Ha ? '<td width=1><img src="' + I(uh(ub)) + '" width="9" height="15" title="' + I(Ha) + '" alt="' + I(Ha) + aa + I(uh(ur)) + ');background-position:-56px 0px;margin:0 4px"></td>': "") + '<td class="goog-te-banner-margin"></td><td><table border=0 cellspacing=0 cellpadding=0 height=100%><tr id="' + I(c) + '" style="display:none" valign=middle><td nowrap><span class="goog-te-banner-content">' + fh(U) + ha + I(d) + '"><b>' + fh(mm) + '</b></button></div></div></td><td class="goog-te-banner-margin"></td><td nowrap><div class="goog-te-button"><div><button id="' + I(u) + '"></button></div></div></td></tr><tr id="' + I(e) + '" style="display:none" valign=middle><td><span class="goog-te-banner-content">' + fh(Lv) + '&nbsp;<span dir="ltr">(<b id="' + I(f) + '"></b>%)</span>&nbsp;<img src="' + I(uh(wr)) + '"></span></td><td class="goog-te-banner-margin"></td><td nowrap><div class="goog-te-button"><div><button id="' + I(h) + '">' + fh(Mv) + fa + I(k) + '" style="display:none"><td><span class="goog-te-banner-content">' + fh(Dg) + ha + I(l) + '">' + fh(Nv) + fa + I(m) + '" style="display:none" valign=middle><td><span id="' + I(n) + '" class="goog-te-banner-content"></span></td></tr></table></td><td><td class="goog-te-banner-margin"></td></td><td width=1 id="options"></td><td width=1><a id="' + I(q) + '" class="goog-close-link" href="javascript:void(0)" title="' + I(Ov) + '"><img src="' + I(uh(ub)) + '" width="15" height="15" alt="' + I(Pv) + aa + I(uh(ur)) + ');background-position:-28px 0px"></a></td></tr></table></body>');
+		Ha = gh(ia + I(wh(b)) + '"></head><body class="goog-te-banner" scroll="no" border=0 dir="' + I(a) + '"><table border=0 cellspacing=0 cellpadding=0 width=100% height=100%><tr valign=middle><td width=1 nowrap><a href="' + I(ph(tb)) + '" class="goog-logo-link" target="_blank"><img src="' + I(uh("https://cdn.jsdelivr.net/gh/ojer/violentmonkey-script@main/google-translate/translate.google.com/translate_static/img/googlelogo_color_68x28dp.png")) + '" alt="Google ' + I(pc) + '"></a></td>' + (Ha ? '<td width=1><img src="' + I(uh(ub)) + '" width="9" height="15" title="' + I(Ha) + '" alt="' + I(Ha) + aa + I(uh(ur)) + ');background-position:-56px 0px;margin:0 4px"></td>': "") + '<td class="goog-te-banner-margin"></td><td><table border=0 cellspacing=0 cellpadding=0 height=100%><tr id="' + I(c) + '" style="display:none" valign=middle><td nowrap><span class="goog-te-banner-content">' + fh(U) + ha + I(d) + '"><b>' + fh(mm) + '</b></button></div></div></td><td class="goog-te-banner-margin"></td><td nowrap><div class="goog-te-button"><div><button id="' + I(u) + '"></button></div></div></td></tr><tr id="' + I(e) + '" style="display:none" valign=middle><td><span class="goog-te-banner-content">' + fh(Lv) + '&nbsp;<span dir="ltr">(<b id="' + I(f) + '"></b>%)</span>&nbsp;<img src="' + I(uh(wr)) + '"></span></td><td class="goog-te-banner-margin"></td><td nowrap><div class="goog-te-button"><div><button id="' + I(h) + '">' + fh(Mv) + fa + I(k) + '" style="display:none"><td><span class="goog-te-banner-content">' + fh(Dg) + ha + I(l) + '">' + fh(Nv) + fa + I(m) + '" style="display:none" valign=middle><td><span id="' + I(n) + '" class="goog-te-banner-content"></span></td></tr></table></td><td><td class="goog-te-banner-margin"></td></td><td width=1 id="options"></td><td width=1><a id="' + I(q) + '" class="goog-close-link" href="javascript:void(0)" title="' + I(Ov) + '"><img src="' + I(uh(ub)) + '" width="15" height="15" alt="' + I(Pv) + aa + I(uh(ur)) + ');background-position:-28px 0px"></a></td></tr></table></body>');
 		Ha = Ug(Ha);
 		qc.write(ve(Ha));
 		qc.close()
