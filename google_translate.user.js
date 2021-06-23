@@ -10,7 +10,13 @@
 // @version     1.0
 // @author      Ming
 // @description 6/23/2021, 10:09:13 AM
-// @exclude      /localhost2/ 
+// @exclude     *://**.js
+// @exclude     *://**.css
+// @exclude     *://**.json
+// @exclude     *://**.png
+// @exclude     *://**.jpg
+// @exclude     *://**.ico
+// @exclude      *://*baidu.com/*
 // @icon         cdn.jsdelivr.net/gh/ojer/violentmonkey-script@main/google-translate/www.google.com/images/google-logo--v1.png
 // @noframes
 
@@ -19,7 +25,8 @@
 ;(function () {
 	'use strict';
 	const lang = document.documentElement.lang;
-	if (lang && lang.substr(0, 2) === 'zh') {
+  const title = document.title;
+	if ((lang && lang.substr(0, 2) === 'zh') || title.search(/[\u4e00-\u9fa5]/) != -1) {
 		console.log('lang is zh, google translate be out');
 		return;
 	} else {
@@ -66,3 +73,4 @@
 		});
 	}
 })();
+
