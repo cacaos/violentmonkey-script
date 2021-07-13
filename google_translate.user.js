@@ -17,7 +17,7 @@
 // @exclude     *://**.jpg
 // @exclude     *://**.ico
 // @exclude      *://*baidu.com/*
-// @icon         cdn.jsdelivr.net/gh/ojer/violentmonkey-script@main/google-translate/www.google.com/images/google-logo--v1.png
+// @icon         cdn.jsdelivr.net/gh/cacaos/violentmonkey-script@main/google-translate/www.google.com/images/google-logo--v1.png
 // @noframes
 
 // ==/UserScript==
@@ -45,7 +45,7 @@
       html,body{top: 0!important;}
 			#google_translate_element { position: fixed; bottom: 30px; right: 30px; height: 30px; z-index: 10000000; overflow: hidden; opacity: 0.13; }
 			#google_translate_element:hover { opacity: 1; }
-			#google_translate_element #lb { background-image: url("https://cdn.jsdelivr.net/gh/ojer/violentmonkey-script@main/google-translate/www.google.com/images/google-logo--v1.png") !important; background-position: 0 !important; background-size: 100% 100%; display: inline-block; }
+			#google_translate_element #lb { background-image: url("https://cdn.jsdelivr.net/gh/cacaos/violentmonkey-script@main/google-translate/www.google.com/images/google-logo--v1.png") !important; background-position: 0 !important; background-size: 100% 100%; display: inline-block; }
         `
 		);
 
@@ -62,7 +62,7 @@
 		        }, 300); 
 		    }
 			`, 'script', '', document.head);
-		createElement( 'https://cdn.jsdelivr.net/gh/ojer/violentmonkey-script@main/google-translate/translate.google.cn/translate_a/element.js', 'script', 'src', document.head);
+		createElement( 'https://cdn.jsdelivr.net/gh/cacaos/violentmonkey-script@main/google-translate/translate.google.cn/translate_a/element.js', 'script', 'src', document.head);
 		const noTranslateArray = ['.bbCodeCode', 'tt', 'pre[translate="no"]', 'pre'];
 		noTranslateArray.forEach(selectorName => {
 			;[...document.querySelectorAll(selectorName)].forEach(node => {

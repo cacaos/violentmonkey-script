@@ -198,7 +198,7 @@
                     h = M
                 } else h = M
             }
-			G = 'https://cdn.jsdelivr.net/gh/ojer/violentmonkey-script@main/google-translate/translate.google.com/translate_static/js/element/element_main.js';
+			G = 'https://cdn.jsdelivr.net/gh/cacaos/violentmonkey-script@main/google-translate/translate.google.com/translate_static/js/element/element_main.js';
             var O = (L = h) ? L.createScriptURL(G) : G;
             K = new k(O, l);
             H.src = K instanceof k && K.constructor === k ? K.g: "type_error:TrustedResourceUrl";
