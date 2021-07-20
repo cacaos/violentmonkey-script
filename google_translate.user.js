@@ -9,6 +9,7 @@
 // @grant        GM_registerMenuCommand
 // @version     1.0
 // @author      Ming
+// @description 6/23/2021, 10:09:13 AM
 // @include *
 // @exclude     *://**.js
 // @exclude     *://**.css
@@ -64,16 +65,27 @@
                     google_translate_element = document.getElementById('google_translate_element');
                     if (google_translate_element) {
                         clearInterval(timer); new google.translate.TranslateElement( { pageLanguage: 'auto', includedLanguages: 'zh-CN,en', layout: 2, }, 'google_translate_element');
-                        setTimeout(() => {
-                            var menu = document.getElementById('google_translate_element');   
+                        setTimeout(() => {    
                             var mSpan = document.createElement('SPAN');
-                            mSpan.setAttribute('class','text');
-                            mSpan.innerHTML = '&ensp;>-&ensp;';
+                            mSpan.setAttribute('class','text goog-te-calcel-item');
                             var mA = document.createElement('A');
-                            mA.setAttribute('class','goog-te-calcel-item');
                             mA.setAttribute('href','javascript:document.getElementById(":2.container").contentWindow.document.getElementById(":2.restore").click()');
-                            mA.appendChild(mSpan);
-                            menu.appendChild(mA);  
+                            mA.innerHTML = '&ensp;C&ensp;';
+                            var mSpanMove = document.createElement('SPAN');
+                            mSpanMove.setAttribute('class','text');
+                            mSpanMove.innerHTML = '&ensp;<^>&ensp;';
+                            mSpan.appendChild(mA);
+                            mSpan.appendChild(mSpanMove);
+                            google_translate_element.appendChild(mSpan); 
+                            google_translate_element.onmousedown = (e => {
+                                let disX = e.clientX - google_translate_element.offsetLeft, disY = e.clientY - google_translate_element.offsetTop;
+                                document.onmousemove = (e => {
+                                    let tX = e.clientX - disX, tY = e.clientY - disY;
+                                    if (tX >= 0 && tX <= window.innerWidth - google_translate_element.offsetWidth) { google_translate_element.style.left = tX + 'px'; } 
+                                    if (tY >= 0 && tY <= window.innerHeight - google_translate_element.offsetHeight) { google_translate_element.style.top = tY + 'px'; } 
+                                });
+                                document.onmouseup = (e => { document.onmousemove = null; document.onmouseup = null; });
+                            });   
                         },300)
                     }
                 }, 300); 
