@@ -36,6 +36,186 @@
 html,body{
     font-family: Consolas,monospace !important;
 }
+.main {
+    height: calc(100% - 60px);
+    padding-top: 0px;
+}
+.main .copyright{
+    display: none;
+}
+
+/*菜单栏*/
+.ide-head{
+    height: 30px;
+    background: var(--iBac);
+    color: var(--iFon);
+    line-height: 30px;
+    font-weight: 500;
+    font-size: 14px;
+    border-bottom: solid 2px var(--iBor);
+    font-family: Consolas,monospace;
+}
+
+.ide-head .underline{
+   text-decoration: underline
+}
+
+.ide-head .log{
+    background: #000;
+    border: solid 1px blue;
+    font-size: 10px;
+    padding: 2px;
+}
+
+.ide-head .unline{
+   text-decoration: none; 
+}
+
+
+/*左侧*/
+.panel{
+    width: 200px;
+    background: var(--iBac);
+    border-right: 60px solid var(--iLnu);
+}
+
+/*project*/
+.panel .project{
+    background: #3b4754;
+    color: var(--iFon);
+    font-size: 12px;
+    font-weight: bold;
+    height: 25px;
+    line-height: 25px;
+}
+
+.project .fa {
+    font-size: 13px;
+    margin: auto 5px;
+}
+
+.project .fa.fa-life-ring {
+    transform: rotate(45deg);
+}
+
+.project .ico{
+    float: right;
+}
+
+.project .line{
+    border-left: solid 1px #747980;
+}
+
+
+
+/*搜索框*/
+.search_bar .frm_search{
+    background: #0000000a;
+}
+
+.panel.give_me .nav_view {
+    /*top: auto;*/
+    /*position: inherit;*/
+}
+/*聊天图标*/
+.chat .web_wechat_tab_chat,.web_wechat_tab_friends{
+    background: var(--iBac);
+    height: 10px;
+}
+.web_wechat_add{
+    background: var(--iBac);
+    width: 120px;
+}
+
+.web_wechat_add::after{
+    content: 'Untitled';
+    font-size: 14px;
+    font-weight: bold;
+    font-style: initial;
+    color: var(--iFon);
+}
+
+.tab_item.ng-scope{
+    display: none;
+}
+.tab .tab_item{
+    display: block;
+    float: initial;
+}
+
+.tab .tab_item.ng-scope{
+    display: none;
+}
+.web_wechat_tab_chat::after {
+    content: '>\00A0src';
+    font-size: 14px;
+    font-weight: bold;
+    font-style: initial;
+    color: var(--iFon);
+}
+
+.web_wechat_tab_friends::after {
+    content: '>\00A0target';
+    color: var(--iOri);
+    font-size: 14px;
+    font-weight: bold;
+    font-style: initial;
+}
+.tab {
+    padding-bottom: 12px;
+}
+.tab::after{
+   border-bottom: none;
+}
+.tab .tab_item::after:{
+    border-right: none;
+}
+
+/*联系人列表*/
+.chat_item{
+    padding: 5px 18px 5px;
+    border-bottom: none;
+}
+.chat_item .info {
+    overflow: hidden;
+}
+
+
+.chat_item .info .nickname {
+    font-size: 10px;
+    color: var(--iFon);
+}
+.chat_item.active .ext, .chat_item.active .info .msg {
+    color: var(--c141);
+}
+.chat_item.active {
+    background-color: #111b26;
+}
+
+/*消息时间及免打扰图标*/
+.chat_item.slide-left.ng-scope .ext{
+    width: 60px;
+    overflow: hidden;
+}
+.ext .attr.ng-binding,.ext .attr.ng-scope.no_time {
+    float: right;
+}
+/*当前选中*/
+.chat_item.active {
+    background-color: #0d293e;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .box{
     background-color:  var(--iCon);
@@ -81,10 +261,19 @@ img{
 
 }	
 .box_hd .title .title_name {
-    color: #ffffffa6;
+    color: var(--iFon);
     font-weight: 100;
-    width: 10px;
     font-size:10px;
+    max-width: 100%;
+}
+
+.box_hd .title .title_name::before {
+    content: 'Untitled..\\src\\main\\java\\com\\oracle\\';
+    font-size: 14px;
+}
+.box_hd .title .title_name::after {
+    content: '.java';
+    font-size: 14px;
 }
 /*edit box*/
 .chat .box_ft {
@@ -102,13 +291,11 @@ img{
 }
 /*msg*/
 .bubble.bubble_primary {
-    background-color: var(--c141);
-    color: #808080;
+    background-color: var(--iCon);
+    color: var(--iFon);
 }
 .bubble.bubble_primary.right.arrow_primary::before, .bubble.bubble_primary.right::after {
-    border: solid 1px #177ddc;
-    background: #177ddc;
-    border-radius: 100%;
+    border: none;
 }
 .bubble.bubble_default {
     background-color: #141414;
@@ -117,37 +304,37 @@ img{
 .bubble.left::after {
     border-right-color: #141414;
 }
+.message {
+    margin-bottom: 0px;
+
+}
 .message.me {
     text-align: left;
 }
 .bubble.right::after, .bubble.right::before {
     left: 0;
 }
+.bubble::before {
+    position: absolute;
+    top: 0px;
+    border: none;
+    content: "//";
+}
+
+.bubble_cont .plain {
+    padding: 0px 25px;
+}
+
+
 .btn_send{
     display: none;
 }
 
 
-/*left panel*/
-.panel{
-    width: 200px;
-    background: var(--iBac);
-    border-right: 60px solid var(--iLnu);
-}
-/*friend list*/
-.chat_item .info .nickname {
-    font-size: 10px;
-    color: var(--iFon);
-}
 .msg.ng-scope {
     display: none;
 }
-.chat_item.active .ext, .chat_item.active .info .msg {
-    color: var(--c141);
-}
-.chat_item.active {
-    background-color: #111b26;
-}
+
 .recommendation {
     background: var(--c141); 
 }
@@ -269,48 +456,43 @@ img{
 
 
 /*ide style*/
-.ide-head{
-    height: 30px;
+
+
+
+
+/*foo*/
+.ide-foot{
     background: var(--iBac);
+    border-top: solid 1px var(--iBor);
+    height: 28px;
     color: var(--iFon);
-    line-height: 30px;
-    font-weight: 500;
-    font-size: 14px;
-    border-bottom: solid 2px var(--iBor);
-    font-family: Consolas,monospace;
+    font-size: 12px;
+    line-height: 28px;
+}
+.ide-foot .menu{
+    display: inline-block;
+}
+.ide-foot .info{
+    float: right;
+    font-weight: bold;
 }
 
-.ide-head .underline{
-   text-decoration: underline
+.ide-foot .menu.bor{
+    height: 11px;
+    border-right: solid 1px var(--iFon);
+    border-left: solid 1px var(--iFon);
 }
 
-.ide-head .log{
-    background: #000;
-    border: solid 1px blue;
-    font-size: 10px;
-    padding: 2px;
+.ide-foot .menu.con{
+    height: 8px;
+    border: solid 2px var(--iFon);
+    width: 8px;
+    margin: auto 3px auto 2px;
+    cursor: pointer;
 }
 
-.ide-head .unline{
-   text-decoration: none; 
+.ide-foot .heap{
+    background: #6e6e6e
 }
 
-/*搜索框*/
-.search_bar .frm_search{
-    background: #0000000a;
-}
-/*文件列表*/
-.chat_item{
-    padding: 5px 18px 5px;
-    border-bottom: none;
-}
-.panel.give_me .nav_view {
-    top: 150px;
-}
-
-/* */
-.bubble.bubble_primary {
-    background-color: var(--iBac);
-    color: var(--iFon);
-}
 
