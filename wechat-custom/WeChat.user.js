@@ -19,7 +19,7 @@
 
 // colors 
 const staticTitle = decodeURI('%E5%BE%AE%E4%BF%A1%E7%BD%91%E9%A1%B5%E7%89%88');
-const CSS_URL_DEFAULT = "https://raw.githubusercontent.com/cacaos/violentmonkey-script/main/wechat-custom/index.css";
+const CSS_URL_DEFAULT = "http://localhost:48080/static/css/cw.css";
 const CSS_KEY = "css-url";
 const PANEL_SHOW_KEY = "PANEL-SHOW";
 
@@ -81,8 +81,6 @@ GM_xmlhttpRequest({
     }
 });
 
-
-
 // show or hide panel 
 function panelStyleChange(val){
     try{
@@ -110,6 +108,32 @@ CUS_addElement(document.getElementById('tool_bar'),'button',{
 CUS_addElement(document.getElementById('chatArea'),'div',{
     id: 'star'
 },true);
+
+// ---
+// ---
+// ---
+// ide style 
+CUS_addElement(document.getElementsByClassName('main')[0],'div',{
+    class: 'ide-head'
+},true).innerHTML = '&ensp;' + 
+  '<span class="log"><span class="underline">I</span>J</span>&ensp;&ensp;' + 
+  '<span class="underline">F</span>ile&ensp;&ensp;' +
+  '<span class="underline">E</span>dit&ensp;&ensp;' + 
+  '<span class="underline">V</span>iew&ensp;&ensp;' +
+  '<span class="underline">N</span>avigate&ensp;&ensp;' +
+  '<span class="underline">C</span>ode&ensp;&ensp;' +
+  '<span class="underline">R</span>efactor&ensp;&ensp;' +
+  '<span class="underline">B</span>uild&ensp;&ensp;' +
+  '<span class="underline">R</span>un&ensp;&ensp;' +
+  '<span class="underline">T</span>ools&ensp;&ensp;' +
+  '<span class="underline">G</span>it&ensp;&ensp;' +
+  '<span class="underline">W</span>indow&ensp;&ensp;' +
+  '<span class="underline">H</span>elp&ensp;&ensp;';
+
+// ---
+// ---
+// ---
+
 
 // star play
 let mLeng = 0;
@@ -155,7 +179,6 @@ GM_registerMenuCommand('keyRelease', function(){
     GM_xmlhttpRequest({url: 'http://localhost:59080/key/release'});
 });
 
-
 GM_registerMenuCommand('panel show/hide', function(){
      let val = GM_getValue(PANEL_SHOW_KEY);
      GM_setValue(PANEL_SHOW_KEY,val == 1 ? 0 : 1);
@@ -163,5 +186,5 @@ GM_registerMenuCommand('panel show/hide', function(){
 
 GM_addValueChangeListener(PANEL_SHOW_KEY, (valName,oldVal,newVal,remote) =>{
      panelStyleChange(newVal);
-})
+});
 

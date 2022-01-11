@@ -1,4 +1,4 @@
-@charset: 'utf-8';
+@charset 'utf-8';
 :root{
     --c141: #1c1b19;
     --cfa6: #ffffffa6;
@@ -29,14 +29,20 @@
 
     /*err -red */
     --iErr: #CC666E;
+    --iLnu: #313335;
+    --iBor: #515151;
+}
 
+html,body{
+    font-family: Consolas,monospace !important;
 }
 
 .box{
-    background-color:  var(--iBac);
+    background-color:  var(--iCon);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left;
+    border-left: solid 1px var(--iBor);
 } 
 
 :first-child .main_inner{
@@ -53,6 +59,9 @@
     display: none;
 }
 /* avatar*/
+img{
+    display: none !important;
+}
 .recommendation,.avatar,.img {
     display: none !important;
 }
@@ -121,14 +130,14 @@
 
 /*left panel*/
 .panel{
-    background: var(--c141);
-    width: 150px;
-    border-right: 1px solid #303030;
+    width: 200px;
+    background: var(--iBac);
+    border-right: 60px solid var(--iLnu);
 }
 /*friend list*/
 .chat_item .info .nickname {
     font-size: 10px;
-    color: var(--cfa6);
+    color: var(--iFon);
 }
 .msg.ng-scope {
     display: none;
@@ -258,4 +267,50 @@
     animation: star2 5s;
 }
 
+
+/*ide style*/
+.ide-head{
+    height: 30px;
+    background: var(--iBac);
+    color: var(--iFon);
+    line-height: 30px;
+    font-weight: 500;
+    font-size: 14px;
+    border-bottom: solid 2px var(--iBor);
+    font-family: Consolas,monospace;
+}
+
+.ide-head .underline{
+   text-decoration: underline
+}
+
+.ide-head .log{
+    background: #000;
+    border: solid 1px blue;
+    font-size: 10px;
+    padding: 2px;
+}
+
+.ide-head .unline{
+   text-decoration: none; 
+}
+
+/*搜索框*/
+.search_bar .frm_search{
+    background: #0000000a;
+}
+/*文件列表*/
+.chat_item{
+    padding: 5px 18px 5px;
+    border-bottom: none;
+}
+.panel.give_me .nav_view {
+    top: 150px;
+}
+
+/* */
+.bubble.bubble_primary {
+    background-color: var(--iBac);
+    color: var(--iFon);
+}
 
