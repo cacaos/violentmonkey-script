@@ -36,15 +36,17 @@
 html,body{
     font-family: Consolas,monospace !important;
 }
+/*主区域*/
 .main {
     height: calc(100% - 60px);
     padding-top: 0px;
 }
+/*版权*/
 .main .copyright{
     display: none;
 }
 
-/*菜单栏*/
+/*头部 idea 菜单栏*/
 .ide-head{
     height: 30px;
     background: var(--iBac);
@@ -56,9 +58,10 @@ html,body{
     font-family: Consolas,monospace;
 }
 
-.ide-head .underline{
+/* .ide-head .underline{
    text-decoration: underline
 }
+*/
 
 .ide-head .log{
     background: #000;
@@ -95,7 +98,7 @@ html,body{
 }
 
 .project .fa.fa-life-ring {
-    transform: rotate(45deg);
+ /*   transform: rotate(45deg); */
 }
 
 .project .ico{
@@ -114,14 +117,29 @@ html,body{
 }
 
 .panel.give_me .nav_view {
-    /*top: auto;*/
+    top: 224px;
     /*position: inherit;*/
 }
-/*聊天图标*/
+/*聊天按钮图标*/
 .chat .web_wechat_tab_chat,.web_wechat_tab_friends{
     background: var(--iBac);
     height: 10px;
 }
+
+.tab .tab_item:after {
+    border-right: none;
+}
+
+.web_wechat_tab_chat::after {
+    content: '>\00A0src';
+    font-size: 14px;
+    font-weight: bold;
+    font-style: initial;
+    color: var(--iFon);
+}
+
+ 
+/*菜单*/
 .web_wechat_add{
     background: var(--iBac);
     width: 120px;
@@ -135,6 +153,40 @@ html,body{
     color: var(--iFon);
 }
 
+.fa.project-name{
+    color: var(--iFon);
+}
+
+.fa.project-name::after{
+    content: '\00A0\00A0Untitled';
+    font-size: 14px; 
+    font-style: initial;
+    color: var(--iFon);
+}
+
+.nickname .opt::before{
+    content: '>\00A0';
+    color: var(--iFon);
+    font-size: 18px;
+    position: relative;
+    top: -2px;
+    font-weight: 100;
+}
+
+.nickname .opt::after{
+    content: '\00A0 C\:\\Users\\Admin\\IdeaProjects\\Untitled';
+    color: #767676;
+    font-size: 12px;
+}
+
+.header .info .nickname .opt {
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: inherit;
+    min-width: 180px;
+}
+/*end*/
+
 .tab_item.ng-scope{
     display: none;
 }
@@ -146,13 +198,8 @@ html,body{
 .tab .tab_item.ng-scope{
     display: none;
 }
-.web_wechat_tab_chat::after {
-    content: '>\00A0src';
-    font-size: 14px;
-    font-weight: bold;
-    font-style: initial;
-    color: var(--iFon);
-}
+
+
 
 .web_wechat_tab_friends::after {
     content: '>\00A0target';
@@ -297,9 +344,10 @@ img{
 .bubble.bubble_primary.right.arrow_primary::before, .bubble.bubble_primary.right::after {
     border: none;
 }
+// 好友消息
 .bubble.bubble_default {
-    background-color: #141414;
-    color: #808080;
+    background-color: var(--iCon);
+    color: var(--iFon);
 }
 .bubble.left::after {
     border-right-color: #141414;
