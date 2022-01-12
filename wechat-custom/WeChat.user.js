@@ -126,7 +126,7 @@ CUS_addElement(document.getElementsByClassName('panel')[0],'div',{
 },true).innerHTML = '&ensp;' + 
   '<span>Project</span>' + 
   '<span class="ico">' + 
-  '<i class="fa fa-life-ring"></i>' + 
+  '<i class="fa fa-life-ring fa-rotate-45"></i>' + 
   '<i class="fa fa-sort"></i>' + 
   '<i class="fa fa-navicon"></i>' +
   '<span class="line"></span>' +
@@ -164,6 +164,11 @@ CUS_addElement(document.getElementsByClassName('main')[0],'div',{
   '<span class="heap">&ensp;365&ensp;</span>' + 
   'of&ensp;2048M&ensp;&ensp;</span>';
 
+
+
+document.getElementsByClassName('web_wechat_add')[0].setAttribute('class','fa fa-folder project-name');
+document.getElementsByClassName('web_wechat_tab_chat web_wechat_tab_chat_hl')[0].setAttribute('class','fa fa-folder project-name');
+  
 
 // ---
 // ---
